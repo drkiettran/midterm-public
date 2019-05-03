@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
  */
 public class Main {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
-	private static final String SAKILA_DB_URL = "jdbc:mysql://localhost:3306/sakila";
+	private static final String SAKILA_DB_URL = "jdbc:mysql://localhost:3306/sakila?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	private static final String UID = "student";
 	private static final String PSW = "password";
 
