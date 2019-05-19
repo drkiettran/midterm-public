@@ -28,7 +28,7 @@ public class Main {
 
 	public static void main(String... args) throws UnknownHostException {
 		if (args.length < 1) {
-			LOGGER.info("**** java com.drkiettran.jdbc.greetings.Main <text> ****");
+			LOGGER.info("**** java -cp ./target/greetings-jdbc-jar-with-dependencies.jar com.drkiettran.jdbc.greetings.Main WILLIS ****");
 			return;
 		}
 
