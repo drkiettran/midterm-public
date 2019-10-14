@@ -1,4 +1,4 @@
-package com.drkiettran.jdbc.greetings;
+package com.drkiettran.midterm;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
