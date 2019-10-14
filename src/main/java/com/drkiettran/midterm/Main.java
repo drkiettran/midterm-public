@@ -55,9 +55,8 @@ public class Main {
 	private static final String PSW = "password";
 
 	public static void main(String... args) throws UnknownHostException {
-		if (args.length < 1) {
-			LOGGER.info(
-					"**** java -cp ./target/greetings-jdbc-jar-with-dependencies.jar com.drkiettran.jdbc.greetings.Main WILLIS ****");
+		if (args.length < 2) {
+			LOGGER.info("**** java -jar target/midterm-jar-with-dependencies.jar sergio stanfield ****");
 			return;
 		}
 
@@ -69,6 +68,7 @@ public class Main {
 		Customer customer = new Customer(connection);
 		customer.getByFirstLastName(firstName, lastName);
 		System.out.println("");
+
 		StringBuilder sb = new StringBuilder("Customer information: \n");
 		sb.append("ID: ").append(customer.getId()).append('\n');
 		sb.append("Store ID: ").append(customer.getStoreId()).append('\n');
@@ -78,28 +78,29 @@ public class Main {
 		sb.append("Email: ").append(customer.getEmail()).append('\n');
 		sb.append("Active: ").append(customer.isActive() ? "yes" : "no").append('\n');
 
-		Address address = new Address(connection);
-		address.getById(customer.getAddressId());
-		sb.append("Address: ").append(address.getAddress());
+//		Address address = new Address(connection);
+//		address.getById(customer.getAddressId());
+//		sb.append("Address: ").append(address.getAddress());
+//
+//		City city = new City(connection);
+//		city.getById(address.getCityId());
+//		Country country = new Country(connection);
+//		country.getById(city.getCountryId());
+//
+//		sb.append(", ").append(city.getCity());
+//		sb.append(", ").append(address.getPostalCode());
+//		sb.append(", ").append(country.getCountry()).append('\n');
+//
+//		Payment payment = new Payment(connection);
+//		payment.getPaymentsAndAmountByCustomerId(customer.getId());
+//
+//		sb.append("Address2: ").append(address.getAddress2()).append('\n');
+//		sb.append("Phone: ").append(address.getPhone()).append('\n');
+//		sb.append("Last Update: ").append(customer.getLastUpdate()).append('\n');
+//
+//		sb.append("Number of payments: ").append(payment.getNumPayments()).append('\n');
+//		sb.append("Total amount: ").append(payment.getTotalAmount()).append('\n');
 
-		City city = new City(connection);
-		city.getById(address.getCityId());
-		Country country = new Country(connection);
-		country.getById(city.getCountryId());
-
-		sb.append(", ").append(city.getCity());
-		sb.append(", ").append(address.getPostalCode());
-		sb.append(", ").append(country.getCountry()).append('\n');
-
-		Payment payment = new Payment(connection);
-		payment.getPaymentsAndAmountByCustomerId(customer.getId());
-
-		sb.append("Address2: ").append(address.getAddress2()).append('\n');
-		sb.append("Phone: ").append(address.getPhone()).append('\n');
-		sb.append("Last Update: ").append(customer.getLastUpdate()).append('\n');
-
-		sb.append("Number of payments: ").append(payment.getNumPayments()).append('\n');
-		sb.append("Total amount: ").append(payment.getTotalAmount()).append('\n');
 		System.out.println(sb.toString());
 
 		DbConnection.closeConnection(connection);
